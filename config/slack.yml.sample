@@ -1,0 +1,5 @@
+bot:
+  domain: <your domain here>
+
+  oauth:
+    client_id: <your xoxb- client id here>
