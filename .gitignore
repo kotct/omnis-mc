@@ -1,3 +1,5 @@
 # Ignore configuration files
 *.yml
 
+# Ignore Bundle cache
+Gemfile.lock
