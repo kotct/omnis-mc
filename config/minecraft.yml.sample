@@ -1,0 +1,3 @@
+minecraft:
+  stdin_fifo: <path to your input FIFO from which the server is reading>
+  stdout_fifo: <path to your output FIFO to which the server is writing>
