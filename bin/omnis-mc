@@ -1,0 +1,9 @@
+#!/usr/bin/env ruby
+
+lib_directory = File.expand_path(File.join('..', '..', 'lib'), __FILE__)
+$LOAD_PATH.unshift(lib_directory) unless $LOAD_PATH.map{|l| File.expand_path(l)}.include? lib_directory
+
+require 'omnis-mc/executor'
+
+executor = Omnis::MC::Executor.new(ARGV)
+executor.run
