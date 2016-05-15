@@ -3,6 +3,7 @@ require 'omnis-mc/configuration'
 
 module Omnis
 	module MC
+
 		class SlackConfiguration < Configuration
 			def initialize(filename)
 				@filename = filename
@@ -30,5 +31,6 @@ module Omnis
 				YAML.load(data).to_h
 			end
 		end
+
 	end
 end
