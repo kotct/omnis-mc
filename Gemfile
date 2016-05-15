@@ -4,4 +4,3 @@ gem 'faye-websocket'
 
 gem 'sinatra'
 gem 'sinatra-websocket'
-
