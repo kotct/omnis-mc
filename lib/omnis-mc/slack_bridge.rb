@@ -147,6 +147,12 @@ module Omnis
 								end
 
 								minecraft_stdin_fifo.flush
+							rescue Exception => e
+								Logger.error('EM.run (ws) write') do e.to_s end
+
+								e.backtrace.each do |element|
+									Logger.error('EM.run (ws) write') do element end
+								end
 							end
 
 							LOGGER.debug('EM.run (ws)') do "Command completed successfully" end
