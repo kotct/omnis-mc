@@ -1,0 +1,11 @@
+#!/bin/sh
+
+jarfile=$1
+
+echo "Starting MC Server at $jarfile."
+
+pushd $(dirname $jarfile)
+
+tail -f ../../input_fifo |java -jar $(basename $jarfile) nogui 2>&1 |tee ../../output_fifo
+
+popd
