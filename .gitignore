@@ -6,3 +6,6 @@ Gemfile.lock
 
 # Ignore fifo files
 *_fifo
+
+# Ignore tmp/ directory
+/tmp/
