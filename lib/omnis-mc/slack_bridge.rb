@@ -137,7 +137,7 @@ module Omnis
 
 							minecraft_stdin_fifo.puts command
 
-							LOGGER.debug('EM.run (ws)') do "Flushing buffers."
+							LOGGER.debug('EM.run (ws)') do "Flushing buffers." end
 
 							begin
 								minecraft_stdin_fifo.fsync
