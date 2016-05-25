@@ -136,7 +136,15 @@ module Omnis
 							LOGGER.debug('EM.run (ws)') do "Running command #{command}" end
 
 							minecraft_stdin_fifo.puts command
-							minecraft_stdin_fifo.flush
+							begin
+								minecraft_stdin_fifo.fsync
+							rescue NotImplementedError => e
+								e.backtrace.each do |element|
+									Logger.error('EM.run (ws) write') do element end
+								end
+
+								minecraft_stdin_fifo.flush
+							end
 
 							LOGGER.debug('EM.run (ws)') do "Command completed successfully" end
 						else
