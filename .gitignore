@@ -3,3 +3,6 @@
 
 # Ignore Bundle cache
 Gemfile.lock
+
+# Ignore fifo files
+*_fifo

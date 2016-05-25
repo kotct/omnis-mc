@@ -4,12 +4,18 @@ module Omnis
 
 	module MC
 
-		Logger = ::Logger.new(STDOUT)
-		Logger.level = ::Logger::DEBUG
+		class Logger < ::Logger
+			def initialize(*arguments)
+				super(*arguments)
 
-		Logger.formatter = proc do |severity, time, prog, msg|
-			"#{'%8s' % [severity]} (#{time.strftime('%m-%d %H:%M:%S %Z')}) <#{prog}> #{msg}\n"
+				@formatter = proc do |severity, time, prog, msg|
+					"#{'%8s' % [severity]} (#{time.strftime('%m-%d %H:%M:%S %Z')}) <#{prog}> #{msg}\n"
+				end
+			end
 		end
+
+		LOGGER = MC::Logger.new(STDOUT)
+		LOGGER.level = ::Logger::DEBUG
 
 	end
 
