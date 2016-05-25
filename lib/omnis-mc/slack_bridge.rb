@@ -136,6 +136,9 @@ module Omnis
 							LOGGER.debug('EM.run (ws)') do "Running command #{command}" end
 
 							minecraft_stdin_fifo.puts command
+
+							LOGGER.debug('EM.run (ws)') do "Flushing buffers."
+
 							begin
 								minecraft_stdin_fifo.fsync
 							rescue NotImplementedError => e
