@@ -137,6 +137,8 @@ module Omnis
 
 							minecraft_stdin_fifo.puts command
 							minecraft_stdin_fifo.flush
+
+							LOGGER.debug('EM.run (ws)') do "Command completed successfully" end
 						else
 							LOGGER.warn('EM.run (ws)') do "Unknown message type #{type.inspect}" end
 						end
