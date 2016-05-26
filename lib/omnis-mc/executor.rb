@@ -34,7 +34,7 @@ module Omnis
 				minecraft_stdout_fifo = File.expand_path(@minecraft_configuration['minecraft']['stdout_fifo'], File.dirname(@configuration[:minecraft_configuration]))
 
 				minecraft_stdout_fifo = IO.popen("tail -f -n0 '#{File.expand_path minecraft_stdout_fifo}'", 'r')
-				minecraft_stdin_fifo = open(minecraft_stdin_fifo, 'w')
+				# minecraft_stdin_fifo = open(minecraft_stdin_fifo, 'w')
 
 				LOGGER.info('Executor#run') do "Starting slack_thread" end
 

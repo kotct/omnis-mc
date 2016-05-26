@@ -135,13 +135,17 @@ module Omnis
 
 							LOGGER.debug('EM.run (ws)') do "Running command #{command}" end
 
-							LOGGER.debug('EM.run (ws) fifo') do "Setting buffers to flush automatically" end
+							# LOGGER.debug('EM.run (ws) fifo') do "Setting buffers to flush automatically" end
 
-							minecraft_stdin_fifo.sync = true
+							# minecraft_stdin_fifo.sync = true
 
 							LOGGER.debug('EM.run (ws) fifo') do "Writing command" end
 
-							minecraft_stdin_fifo.puts command
+							File.open(minecraft_stdin_fifo, "w") do |console|
+								console.puts command
+							end
+
+							# minecraft_stdin_fifo.puts command
 
 							LOGGER.debug('EM.run (ws)') do "Command completed successfully" end
 						else
